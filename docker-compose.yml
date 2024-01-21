@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  postgres:
+    image: postgres:latest
+    container_name: java-spring-starter-postgres
+    environment:
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+    ports:
+      - ${DATABASE_PORT}:${DATABASE_PORT}
+    restart: always
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - postgresdb-data:/var/lib/postgresql/data
+
+volumes:
+  postgresdb-data:

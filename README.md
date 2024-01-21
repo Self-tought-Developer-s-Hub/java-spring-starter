@@ -7,3 +7,24 @@
 - Packaging: .jar
 - Java: v17
 - Dependencies: N/A
+
+## 起動方法
+1. 環境変数のコピー
+```bash
+cp .env.example .env
+```
+
+2. Dockerコンテナ群の起動
+```bash
+docker-compose up -d
+```
+
+3. bootアプリケーションの起動
+```bash
+./gradlew build
+./gradlew bootRun
+
+# もしくは
+gradle build
+gradle bootRun
+```
